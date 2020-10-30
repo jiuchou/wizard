@@ -62,6 +62,11 @@ class DocumentPolicy
             return false;
         }
 
+        // 游客
+        if ($user->isReporter()) {
+            return false;
+        }
+
         // 管理员
         if ($user->isAdmin()) {
             return true;
