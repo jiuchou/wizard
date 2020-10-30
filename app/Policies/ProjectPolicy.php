@@ -125,7 +125,7 @@ class ProjectPolicy
      */
     public function edit($user, $project)
     {
-        if (empty($user) || !$user->isActivated()) {
+        if (empty($user) || $user->isReporter() || !$user->isActivated()) {
             return false;
         }
 
@@ -158,7 +158,7 @@ class ProjectPolicy
      */
     public function create(User $user = null)
     {
-        if (empty($user)) {
+        if (empty($user) || $user->isReporter()) {
             return false;
         }
 
