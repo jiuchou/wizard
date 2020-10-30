@@ -163,7 +163,7 @@ class UserController extends Controller
             $request,
             [
                 'username' => "required|string|max:255|username_unique:{$id}",
-                'role'     => 'required|in:1,2',
+                'role'     => 'required|in:0,1,2',
                 'status'   => 'required|in:0,1,2',
             ]
         );
