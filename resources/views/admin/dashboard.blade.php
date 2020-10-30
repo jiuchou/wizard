@@ -17,8 +17,9 @@
                     <h4 class="my-0 font-weight-normal">用户</h4>
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title">{{ ($user['counts']['normal'] ?? 0) + ($user['counts']['admin'] ?? 0) }}</h1>
+                    <h1 class="card-title pricing-card-title">{{ ($user['counts']['reporter'] ?? 0) + ($user['counts']['normal'] ?? 0) + ($user['counts']['admin'] ?? 0) }}</h1>
                     <ul class="list-unstyled mt-3 mb-4">
+                        <li>{{ $user['counts']['reporter'] ?? 0 }} 个游客</li>
                         <li>{{ $user['counts']['normal'] ?? 0 }} 个普通用户</li>
                         <li>{{ $user['counts']['admin'] ?? 0 }} 个管理员</li>
                         <li>{{ $user['group_count'] ?? 0 }} 个用户组</li>
