@@ -40,7 +40,9 @@
                         <span class="fa fa-laptop"></span>
                     </button>
                 </li>
+                @can('page-edit', $pageItem)
                 @include('components.page-menus-export', ['project' => $project, 'pageItem' => $pageItem])
+                @endcan
                 @include('components.page-menus', ['project' => $project, 'pageItem' => $pageItem])
             </ul>
             <div class="clearfix"></div>
@@ -160,7 +162,9 @@
                 <li class="breadcrumb-item active">{{ $project->name }}</li>
             </ol>
             <ul class="nav nav-pills pull-right">
+                @can('project-edit', $project)
                 @include('components.page-menus-batch-export', ['project' => $project])
+                @endcan
             </ul>
             <div class="clearfix"></div>
         </div>
