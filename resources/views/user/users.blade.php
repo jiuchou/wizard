@@ -56,6 +56,15 @@
                     </td>
                     <td>{{ $user->isAdmin() ? '管理员':'普通' }}</td>
                     <td>
+                    </td>
+                        @if($user->role == 0)
+                            游客
+                        @elseif($user->role == 1)
+                            普通用户
+                        @elseif($user->role == 2)
+                            管理员
+                        @endif
+                    <td>
                         @if($user->status == 0)
                             <span style="color: orangered;">未激活</span>
                         @elseif($user->status == 1)
