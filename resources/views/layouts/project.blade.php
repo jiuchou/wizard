@@ -18,6 +18,7 @@
                 @endphp
                 <div class="dropdown pull-right" style="margin-right: 20px;" role="group">
                     @if($hasEditPrivilege)
+                        @can('project-edit', $project)
                         <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="new-document" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="material-icons" data-toggle="tooltip" title="创建文档">add_to_photos</i>
                         </button>
@@ -32,6 +33,7 @@
                                 <i class="fa fa-table mr-2"></i> 创建 表格
                             </a>
                         </ul>
+                        @endcan
                         <button type="button" class="btn bmd-btn-icon" data-href="{!! wzRoute('search:search', ['project_id' => $project->id]) !!}" data-toggle="tooltip" title="搜索">
                             <i class="material-icons">search</i>
                         </button>
