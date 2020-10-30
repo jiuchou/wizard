@@ -48,6 +48,10 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * 游客
+     */
+    const ROLE_REPORTER = 0;
+    /**
      * 普通用户
      */
     const ROLE_NORMAL = 1;
@@ -136,6 +140,16 @@ class User extends Authenticatable
     public function histories()
     {
         return $this->hasMany(DocumentHistory::class, 'operator_id', 'id');
+    }
+
+    /**
+     * 判断当前用户是否为管理员
+     *
+     * @return bool
+     */
+    public function isReporter()
+    {
+        return (int)$this->role === self::ROLE_REPORTER;
     }
 
     /**
