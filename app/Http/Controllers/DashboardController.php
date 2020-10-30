@@ -28,8 +28,17 @@ class DashboardController extends Controller
             ->select(\DB::raw('role, count(id) as user_count'))
             ->get()
             ->mapWithKeys(function ($item) {
+                if ($item['role'] == User::ROLE_ADMIN) {
+                    $permit = 'admin';
+                } elseif ($item['role'] == User::ROLE_NORMAL) {
+                    $permit = 'normal';
+                } elseif ($item['role'] == User::ROLE_REPORTER) {
+                    $permit = 'reporter';
+                } else {
+                    $permit = 'unknown';
+                }
                 return [
-                    $item['role'] == User::ROLE_ADMIN ? 'admin' : 'normal' => $item['user_count']
+                    $permit => $item['user_count']
                 ];
             })->toArray();
         $groupCount = Group::count();
