@@ -24,6 +24,6 @@ class LdapImportingListener
         // 用户是新同步来的，状态为未激活
         // LDAP 同步时，自动激活用户
         $event->model->status = User::STATUS_ACTIVATED;
-        $event->model->role   = User::ROLE_NORMAL;
+        $event->model->role   = User::ROLE_REPORTER;
     }
 }
