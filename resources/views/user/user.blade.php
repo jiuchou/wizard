@@ -57,6 +57,9 @@
                             <label class="bmd-label-floating">角色</label>
                             <div class="radio mt-2">
                                 <label class="radio-inline">
+                                    <input type="radio" name="role" value="0" {{ $user->role == 0 ? 'checked':'' }} {{ $user->id == 1 ? 'disabled': '' }}> 游客
+                                </label>
+                                <label class="radio-inline">
                                     <input type="radio" name="role" value="1" {{ $user->role == 1 ? 'checked':'' }} {{ $user->id == 1 ? 'disabled': '' }}> 普通用户
                                 </label>
                                 <label class="radio-inline">
